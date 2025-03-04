@@ -6,7 +6,7 @@ const dbconnect = require("./db/db");
 dbconnect();
 const express = require("express");
 const app = express();
-app.use(cors({ origin: "*", credentials: true }));
+app.use(cors({ origin: `${process.env.REACT_URL}`, credentials: true }));
 app.use(cookieParser());
 const userRoutes = require("./routes/user.routes");
 const captainRoutes = require("./routes/captain.routes");
