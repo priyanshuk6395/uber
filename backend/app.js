@@ -19,7 +19,7 @@ app.use(express.urlencoded({extended:true}));
 
 app.use((req, res, next) => {
   console.log(`Request received: ${req.method} ${req.url}`);
-  // // console.log("Headers:", req.headers);
+  console.log("Headers:", req.headers);
   // console.log("Params:", req.query);
   // console.log("Body:", req.body);
   next();
