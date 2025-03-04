@@ -14,12 +14,10 @@ function initializeSocket(server) {
     });
 
     io.on('connection', (socket) => {
-        console.log(`Client connected: ${socket.id}`);
 
         socket.on('join', async (data) => {
             try {
                 const { userId, userType } = data;
-                console.log('join', userId, userType);
 
                 if (!userId || !userType) {
                     return socket.emit('error', { message: 'Missing userId or userType' });
@@ -50,8 +48,6 @@ function initializeSocket(server) {
                         lng: location.lng
                     }
                 });
-
-                console.log(`Updated location for captain: ${userId}`);
             } catch (error) {
                 console.error('Error updating location:', error);
                 socket.emit('error', { message: 'Could not update location' });
@@ -59,14 +55,12 @@ function initializeSocket(server) {
         }); 
 
         socket.on('disconnect', () => {
-            console.log(`Client disconnected: ${socket.id}`);
         });
     });
 }
 
 const sendMessageToSocketId = (socketId, messageObject) => {
     if (io) {
-        console.log(`Sending message to : {socketId}`, messageObject);
         io.to(socketId).emit(messageObject.event, messageObject.data);
     } else {
         console.error('Socket.io not initialized.');

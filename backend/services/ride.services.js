@@ -1,4 +1,3 @@
-const { log } = require("console");
 const rideModel = require("../models/ride.model");
 const Ride = require("../models/ride.model");
 const mapService = require("../services/maps.service");
