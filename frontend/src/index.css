@@ -1,0 +1,22 @@
+@import "tailwindcss";
+@keyframes glowing-line {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0.2;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(100%);
+      opacity: 0.2;
+    }
+  }
+  
+  .animate-glowing-line {
+    height: 4px;
+    background: linear-gradient(90deg, #00ff00, #32cd32, #00ff00);
+    filter: drop-shadow(0px 0px 5px #00ff00);
+    animation: glowing-line 2.5s ease-in-out infinite;
+  }
+  
